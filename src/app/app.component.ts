@@ -34,7 +34,6 @@ export class AppComponent {
     console.log("found: " + theme);
     if (theme) {
       document.body.classList.toggle(theme);
-      console.log('theme: ' + theme);
     }
   }
 }
