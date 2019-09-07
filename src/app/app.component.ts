@@ -19,22 +19,22 @@ export class AppComponent {
   }
 
   initializeApp() {
-    console.log("here");
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
 
-      const theme = getComputedStyle(document.body).getPropertyValue('--ion-color-scheme').trim();
-    console.log("theme: " + theme);
-    if (theme === 'dark') {
       this.toggleTheme();
-    }
     });
 
     
   }
 
   toggleTheme() {
-    document.body.classList.toggle('dark');
+    const theme = getComputedStyle(document.body).getPropertyValue('--ion-color-scheme').trim();
+    console.log("found: " + theme);
+    if (theme) {
+      document.body.classList.toggle(theme);
+      console.log('theme: ' + theme);
+    }
   }
 }
